@@ -31,11 +31,11 @@ class ContaBancaria:
         self.registrar_transacao({"tipo": "Saque", "valor": saque})
         self.limite_saques -= 1
 
-    def extrato(self):
+    def extrato(self, saldo, /):
         for transacao in self._transacoes:
             print(f"Transação: {transacao["tipo"]} - valor: {transacao["valor"]}")
         print("________________________")
-        print(f"Saldo R${self.get_saldo()}")
+        print(f"Saldo R${saldo}")
 
     def get_saldo(self):
         return self._saldo

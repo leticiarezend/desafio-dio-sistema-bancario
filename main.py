@@ -27,7 +27,8 @@ while True:
             print(e)
     if operacao_selecionada == "e":
         print("Extrato da conta:")
-        conta.extrato()
+        saldo = conta.get_saldo()
+        conta.extrato(saldo)
     if operacao_selecionada == "q":
         print("Saída efetuada!")
         break
