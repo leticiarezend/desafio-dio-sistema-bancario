@@ -14,7 +14,7 @@ class ContaBancaria:
     def registrar_transacao(self, transacao):
         self._transacoes.append(transacao)
 
-    def sacar(self, saque):
+    def sacar(self, *, saque):
         if saque <= 0:
             raise ValueError("Valor do saque deve ser maior que 0!")
         if saque >= 500:
