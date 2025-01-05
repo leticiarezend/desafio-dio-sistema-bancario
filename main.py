@@ -1,6 +1,33 @@
 from operacoes.operacoes import ContaBancaria
 
-
+operacoes = """
+ [s] - sacar
+ [d] - depositar
+ [e] - extrato
+ [q] - sair
+"""
 conta = ContaBancaria()
-conta.depositar(200)
-print("saldo:", conta.get_saldo())
+while True:
+    print(operacoes)
+    operacao_selecionada = input()
+    if operacao_selecionada == "s":
+        try:
+            valor = input("Valor do Saque: ")
+            valor = float(valor)
+            conta.sacar(valor)
+        except ValueError as e:
+            print(e)
+
+    if operacao_selecionada == "d":
+        try:
+            valor = input("Valor do Deposito: ")
+            valor = float(valor)
+            conta.depositar(valor)
+        except ValueError as e:
+            print(e)
+    if operacao_selecionada == "e":
+        print("Extrato da conta:")
+        conta.extrato()
+    if operacao_selecionada == "q":
+        print("Saída efetuada!")
+        break
