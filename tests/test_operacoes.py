@@ -13,6 +13,11 @@ class TestContaBancaria(unittest.TestCase):
         conta.depositar(-50)
         self.assertEqual(conta.get_saldo(), 0)
 
+    def test_saque(self):
+        conta = ContaBancaria(50)
+        conta.sacar(20)
+        self.assertEqual(conta.get_saldo(), 30)
+
 
 if __name__ == "__main__":
     unittest.main()
