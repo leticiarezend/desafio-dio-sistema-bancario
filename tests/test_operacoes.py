@@ -45,6 +45,19 @@ class TestContaBancaria(unittest.TestCase):
         )
         self.assertEqual(conta.get_saldo(), 100)
 
+    def test_limite_diario(self):
+        conta = ContaBancaria(100)
+        conta.sacar(20)
+        conta.sacar(20)
+        conta.sacar(20)
+        with self.assertRaises(ValueError) as context:
+            conta.sacar(20)
+        self.assertEqual(
+            str(context.exception),
+            "Limite diário de 3 saques atingido.",
+        )
+        self.assertEqual(conta.get_saldo(), 40)
+
 
 if __name__ == "__main__":
     unittest.main()
