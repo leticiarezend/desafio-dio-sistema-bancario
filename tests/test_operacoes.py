@@ -25,6 +25,16 @@ class TestContaBancaria(unittest.TestCase):
         self.assertEqual(str(context.exception), "Valor do saque deve ser maior que 0!")
         self.assertEqual(conta.get_saldo(), 100)
 
+    def test_saque_maior_que_saldo(self):
+        conta = ContaBancaria(100)
+        with self.assertRaises(ValueError) as context:
+            conta.sacar(150)
+        self.assertEqual(
+            str(context.exception),
+            f"Saldo insuficiente para saque de 150. Seu saldo atual é de {conta.get_saldo()}",
+        )
+        self.assertEqual(conta.get_saldo(), 100)
+
 
 if __name__ == "__main__":
     unittest.main()
