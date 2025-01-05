@@ -35,6 +35,16 @@ class TestContaBancaria(unittest.TestCase):
         )
         self.assertEqual(conta.get_saldo(), 100)
 
+    def test_valor_limite(self):
+        conta = ContaBancaria(100)
+        with self.assertRaises(ValueError) as context:
+            conta.sacar(500)
+        self.assertEqual(
+            str(context.exception),
+            "Valor limite de saque de R$ 500,00 excedido. Saque um valor inferior",
+        )
+        self.assertEqual(conta.get_saldo(), 100)
+
 
 if __name__ == "__main__":
     unittest.main()
