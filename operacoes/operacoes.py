@@ -1,9 +1,12 @@
 class ContaBancaria:
-    def __init__(self, saldo_inical=0.0):
+    def __init__(self, usuario, agencia, conta, saldo_inical=0.0):
+        self.conta = conta
+        self.agencia = agencia
         self._saldo = saldo_inical
         self._transacoes = []
         self._saques = 0
         self.limite_saques = 3
+        self.usuario = usuario
 
     def depositar(self, deposito):
         if deposito <= 0:
@@ -39,3 +42,9 @@ class ContaBancaria:
 
     def get_saldo(self):
         return self._saldo
+
+
+def buscar_conta(contas, nconta):
+    for conta in contas:
+        if conta.conta == nconta:
+            return conta
