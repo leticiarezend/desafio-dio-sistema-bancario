@@ -77,3 +77,20 @@ Os métodos são:
 - **Comportamento**:
    - Adiciona a transação ao final da lista de operações.
    
+## Como Executar
+1. Certifique-se de que você tenha o Python instalado.
+2. Execute o arquivo principal do programa.
+3. Siga as instruções no terminal para realizar depósitos, saques e visualizar o extrato.
+
+#### Para executar os Testes rode no terminal 
+~~~
+ python -m unittest discover -s tests
+~~~## Como Executar
+1. Certifique-se de que você tenha o Python instalado.
+2. Execute o arquivo principal do programa.
+3. Siga as instruções no terminal para realizar depósitos, saques e visualizar o extrato.
+
+#### Para executar os Testes rode no terminal 
+~~~
+ python -m unittest discover -s tests
+~~~
