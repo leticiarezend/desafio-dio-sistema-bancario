@@ -85,7 +85,8 @@ Os métodos são:
 #### Para executar os Testes rode no terminal 
 ~~~
  python -m unittest discover -s tests
-~~~## Como Executar
+~~~
+## Como Executar
 1. Certifique-se de que você tenha o Python instalado.
 2. Execute o arquivo principal do programa.
 3. Siga as instruções no terminal para realizar depósitos, saques e visualizar o extrato.
