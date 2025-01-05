@@ -1,18 +1,15 @@
 class ContaBancaria:
-    def __init__(self, saldo_inical=0):
+    def __init__(self, saldo_inical=0.0):
         self._saldo = saldo_inical
         self._transacoes = []
         self._saques = 0
         self.limite_saques = 3
 
     def depositar(self, deposito):
-        try:
-            if deposito <= 0:
-                raise ValueError("Depósito deve ser maior que 0!")
-            self._saldo += deposito
-            self.registrar_transacao({"tipo": "Depósito", "valor": deposito})
-        except ValueError as e:
-            return e
+        if deposito <= 0:
+            raise ValueError("Depósito deve ser maior que 0!")
+        self._saldo += deposito
+        self.registrar_transacao({"tipo": "Depósito", "valor": deposito})
 
     def registrar_transacao(self, transacao):
         self._transacoes.append(transacao)
@@ -33,6 +30,12 @@ class ContaBancaria:
         self._saldo -= saque
         self.registrar_transacao({"tipo": "Saque", "valor": saque})
         self.limite_saques -= 1
+
+    def extrato(self):
+        for transacao in self._transacoes:
+            print(f"Transação: {transacao["tipo"]} - valor: {transacao["valor"]}")
+        print("________________________")
+        print(f"Saldo R${self.get_saldo()}")
 
     def get_saldo(self):
         return self._saldo
